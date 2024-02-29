@@ -54,6 +54,22 @@ DataCollection::~DataCollection(){
 void DataCollection::append(int newElement){
 
    // Put your code here!
+   Node * nodeToAdd = nullptr;
+   nodeToAdd = new Node(newElement);
+   nodeToAdd -> data = newElement;
+   if (nodeToAdd == nullptr){
+      throw UnableToInsertException ("wrong type of data");
+   } 
+   if (head == nullptr){
+      head = nodeToAdd;
+   } else {
+      Node * current = head;
+      while (current -> next != nullptr) {
+         current = current -> next;
+         }
+         current -> next = nodeToAdd;
+
+   }
 
    return;
 }
@@ -63,6 +79,19 @@ void DataCollection::append(int newElement){
 void DataCollection::prepend(int newElement){
    
    // Put your code here!
+   Node * nodeToAdd = nullptr;
+   nodeToAdd = new Node(newElement);
+   nodeToAdd -> data = newElement;
+   if (nodeToAdd == nullptr){
+      throw UnableToInsertException ("wrong type of data");
+   } 
+   if (head == nullptr){
+      head = nodeToAdd;
+   }
+   else {
+      nodeToAdd -> next = head;
+      head = nodeToAdd;
+   }
 
    return;
 }
